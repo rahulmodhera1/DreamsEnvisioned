@@ -13,7 +13,7 @@ export function FeaturedFilms({
       <SlateDivider scene="02" take="1" label="Featured Films" />
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="mt-12 sm:mt-16 max-w-2xl">
-          <h2 className="text-balance font-display text-3xl text-ivory sm:text-4xl">
+          <h2 className="text-balance font-display text-4xl font-semibold text-ivory sm:text-5xl">
             A handful of the weddings we&apos;ve been trusted with.
           </h2>
           <p className="mt-4 text-ivory-dim">

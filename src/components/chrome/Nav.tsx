@@ -3,23 +3,20 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Logo } from "@/components/Logo";
 import { navLinks, site } from "@/lib/content";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header id="top" className="fixed inset-x-0 top-0 z-50">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-ink/90 via-ink/40 to-transparent"
-      />
-      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-10">
-        <a
-          href="#top"
-          className="font-mono text-xs tracking-[0.3em] text-ivory hover:text-gold transition-colors"
-        >
-          {site.name.toUpperCase()}
+    <header id="top" className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
+        <a href="#top" className="flex items-center gap-3 group">
+          <Logo size={36} />
+          <span className="font-mono text-xs tracking-[0.3em] text-ivory group-hover:text-gold transition-colors">
+            {site.name.toUpperCase()}
+          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -52,7 +49,7 @@ export function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden mx-6 mb-4 rounded-sm border border-surface-2 bg-surface/95 backdrop-blur"
+            className="md:hidden mx-6 mb-4 border border-surface-2 bg-surface"
           >
             <ul className="flex flex-col divide-y divide-surface-2">
               {navLinks.map((link) => (

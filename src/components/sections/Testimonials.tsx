@@ -11,11 +11,11 @@ export function Testimonials() {
         <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-14">
           {testimonials.map((t, index) => (
             <Reveal key={t.name} delay={(index % 2) * 0.1}>
-              <figure className="flex h-full flex-col">
+              <figure className="flex h-full flex-col border-l-2 border-gold pl-6">
                 <Quote
                   aria-hidden="true"
-                  size={28}
-                  className="mb-4 text-maroon"
+                  size={30}
+                  className="mb-4 text-gold"
                   fill="currentColor"
                 />
                 <blockquote className="flex-1">

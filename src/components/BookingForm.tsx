@@ -13,10 +13,10 @@ const functionsOptions = [
 ];
 
 const fieldClass =
-  "peer w-full border-0 border-b border-surface-2 bg-transparent py-2.5 text-ivory placeholder:text-ivory-dim/60 focus:border-gold focus:outline-none";
+  "peer w-full border-0 border-b border-ink/20 bg-transparent py-2.5 text-ink placeholder:text-ink-dim/60 focus:border-gold-deep focus:outline-none";
 
 const labelClass =
-  "font-mono text-[10px] tracking-[0.2em] text-ivory-dim uppercase";
+  "font-mono text-[10px] tracking-[0.2em] text-ink-dim uppercase";
 
 export function BookingForm() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
@@ -51,24 +51,22 @@ export function BookingForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative border border-surface-2 bg-surface p-6 sm:p-10"
+      className="relative bg-paper p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] sm:p-10"
     >
-      <div className="flex flex-wrap items-start justify-between gap-4 border-b border-surface-2 pb-6">
+      <div className="flex flex-wrap items-start justify-between gap-4 border-b border-ink/15 pb-6">
         <div>
-          <p className="font-mono text-[10px] tracking-[0.25em] text-gold uppercase">
+          <p className="font-mono text-[10px] tracking-[0.25em] text-gold-deep uppercase">
             Production
           </p>
-          <p className="mt-1 font-display text-xl text-ivory">
+          <p className="mt-1 font-display text-xl font-semibold text-ink">
             Wedding Film Inquiry
           </p>
         </div>
         <div className="text-right">
-          <p className="font-mono text-[10px] tracking-[0.25em] text-ivory-dim uppercase">
+          <p className="font-mono text-[10px] tracking-[0.25em] text-ink-dim uppercase">
             Director
           </p>
-          <p className="mt-1 font-mono text-xs text-ivory-dim">
-            {site.name}
-          </p>
+          <p className="mt-1 font-mono text-xs text-ink-dim">{site.name}</p>
         </div>
       </div>
 
@@ -112,8 +110,8 @@ export function BookingForm() {
                   aria-pressed={active}
                   className={`border px-3 py-1.5 font-mono text-[11px] tracking-[0.1em] uppercase transition-colors ${
                     active
-                      ? "border-gold bg-gold/10 text-gold"
-                      : "border-surface-2 text-ivory-dim hover:border-gold/50 hover:text-ivory"
+                      ? "border-gold-deep bg-gold/15 text-gold-deep"
+                      : "border-ink/20 text-ink-dim hover:border-gold-deep hover:text-ink"
                   }`}
                 >
                   {f}
@@ -167,14 +165,14 @@ export function BookingForm() {
         </label>
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-surface-2 pt-6">
-        <p className="max-w-sm text-xs text-ivory-dim">
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-ink/15 pt-6">
+        <p className="max-w-sm text-xs text-ink-dim">
           Submitting opens your email client with the details filled in —
           we reply within one business day.
         </p>
         <button
           type="submit"
-          className="inline-flex items-center gap-2 bg-gold px-6 py-3 font-mono text-[11px] tracking-[0.2em] text-ink uppercase transition-colors hover:bg-ivory"
+          className="inline-flex items-center gap-2 bg-ink px-6 py-3 font-mono text-[11px] tracking-[0.2em] text-paper uppercase transition-colors hover:bg-gold-deep"
         >
           Send Inquiry
           <Send size={14} />
@@ -184,7 +182,7 @@ export function BookingForm() {
       {status === "sent" && (
         <p
           role="status"
-          className="mt-4 font-mono text-[11px] tracking-[0.15em] text-gold uppercase"
+          className="mt-4 font-mono text-[11px] tracking-[0.15em] text-gold-deep uppercase"
         >
           Opening your email client — see you soon.
         </p>

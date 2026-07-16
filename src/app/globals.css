@@ -1,14 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #0b0a08;
-  --color-surface: #15130e;
-  --color-surface-2: #1d1a13;
-  --color-gold: #c9a15a;
-  --color-gold-dim: #8f6f3c;
-  --color-maroon: #7a2e2e;
-  --color-ivory: #f4efe4;
-  --color-ivory-dim: #a49a86;
+  /* dark sections */
+  --color-ink: #0a0a0a;
+  --color-surface: #141414;
+  --color-surface-2: #202020;
+  --color-ivory: #f7f5f0;
+  --color-ivory-dim: #a8a49a;
+
+  /* light / paper sections */
+  --color-paper: #f7f4ee;
+  --color-paper-2: #ece7d8;
+  --color-ink-dim: #57534a;
+
+  /* accents */
+  --color-gold: #d4af37;
+  --color-gold-deep: #7d5f16;
+  --color-maroon: #8c2a2a;
 
   --font-display: var(--font-fraunces);
   --font-sans: var(--font-instrument-sans);
@@ -52,9 +60,13 @@ body {
   color: var(--color-ink);
 }
 
+/* double ring so focus stays visible against both black and white sections */
 :focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 3px;
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-ink),
+    0 0 0 4px var(--color-gold);
+  border-radius: 1px;
 }
 
 ::-webkit-scrollbar {
@@ -137,7 +149,7 @@ body {
 .hero-glow {
   background: radial-gradient(
     45% 40% at 50% 35%,
-    rgba(201, 161, 90, 0.16) 0%,
+    rgba(212, 175, 55, 0.22) 0%,
     transparent 70%
   );
   animation: hero-drift 14s ease-in-out infinite;

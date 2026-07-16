@@ -1,7 +1,9 @@
 import { TimecodeTicker } from "./TimecodeTicker";
 
-const bracketBase =
-  "absolute h-6 w-6 sm:h-8 sm:w-8 border-gold/70";
+const bracketBase = "absolute h-6 w-6 sm:h-8 sm:w-8 border-gold";
+
+const chip =
+  "flex items-center gap-2 bg-ink/80 backdrop-blur-sm border border-white/10 px-2.5 py-1.5";
 
 export function ViewfinderFrame() {
   return (
@@ -20,12 +22,14 @@ export function ViewfinderFrame() {
       />
 
       {/* bottom-left timecode */}
-      <div className="absolute bottom-4 left-14 sm:left-16 flex items-center gap-2 text-[11px] text-ivory-dim">
+      <div className={`absolute bottom-4 left-14 sm:left-16 text-[11px] text-ivory-dim ${chip}`}>
         <TimecodeTicker />
       </div>
 
       {/* bottom-right frame info */}
-      <div className="absolute bottom-4 right-14 sm:right-16 text-[10px] tracking-[0.2em] text-ivory-dim font-mono uppercase">
+      <div
+        className={`absolute bottom-4 right-14 sm:right-16 text-[10px] tracking-[0.2em] text-ivory-dim font-mono uppercase ${chip}`}
+      >
         GTA · 24FPS
       </div>
     </div>

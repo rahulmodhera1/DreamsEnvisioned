@@ -1,14 +1,18 @@
 import { Mail } from "lucide-react";
 import { InstagramGlyph } from "@/components/icons/InstagramGlyph";
+import { Logo } from "@/components/Logo";
 import { site } from "@/lib/content";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-surface-2 bg-ink py-10">
+    <footer className="relative border-t border-white/10 bg-ink py-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 text-center sm:flex-row sm:justify-between sm:text-left sm:px-10">
-        <span className="font-mono text-xs tracking-[0.3em] text-ivory-dim uppercase">
-          {site.wordmark}
-        </span>
+        <div className="flex items-center gap-3">
+          <Logo size={28} />
+          <span className="font-mono text-xs tracking-[0.3em] text-ivory-dim uppercase">
+            {site.wordmark}
+          </span>
+        </div>
 
         <div className="flex items-center gap-5">
           <a
