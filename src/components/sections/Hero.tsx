@@ -68,7 +68,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         {reelSrc && (
           <video
             ref={videoRef}
-            className="absolute inset-0 h-full w-full object-cover opacity-90"
+            className="absolute inset-0 h-full w-full object-cover"
             src={reelSrc}
             poster={posterSrc ?? undefined}
             autoPlay
@@ -77,9 +77,9 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
             playsInline
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_48%,rgba(0,0,0,0.55)_0%,transparent_75%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_48%,rgba(0,0,0,0.3)_0%,transparent_75%)]" />
       </div>
 
       <motion.div
@@ -93,14 +93,14 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
           initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8"
+          className="mb-5 sm:mb-8"
         >
           <Logo width={130} />
         </motion.div>
 
         <motion.p
           variants={item}
-          className="mb-5 font-mono text-[11px] tracking-[0.4em] text-gold uppercase"
+          className="mb-4 font-mono text-[11px] tracking-[0.4em] text-gold uppercase sm:mb-5"
         >
           Toronto &amp; the GTA · Documentary Wedding Cinematography
         </motion.p>
@@ -115,13 +115,14 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
 
         <motion.div
           variants={item}
-          className="mt-6 h-px w-24 bg-gold"
+          className="mt-4 h-px w-24 bg-gold sm:mt-6"
           aria-hidden="true"
         />
 
         <motion.p
           variants={item}
-          className="mt-6 max-w-xl text-balance font-sans text-base text-ivory-dim sm:text-lg"
+          style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}
+          className="mt-4 max-w-xl text-balance font-sans text-base text-ivory-dim sm:mt-6 sm:text-lg"
         >
           Documentary wedding films, shot close and cut by hand — for the
           families who fill a hall from Brampton to Ajax and every hour of
@@ -130,7 +131,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
 
         <motion.div
           variants={item}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:mt-10"
         >
           <a
             href="#films"
@@ -152,7 +153,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.1 }}
-        className="group absolute bottom-10 z-10 flex flex-col items-center gap-2 text-ivory-dim hover:text-gold transition-colors"
+        className="group absolute bottom-5 z-10 hidden flex-col items-center gap-2 text-ivory-dim hover:text-gold transition-colors [@media(min-height:700px)]:flex sm:bottom-10"
         aria-label="Scroll to next section"
       >
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase">

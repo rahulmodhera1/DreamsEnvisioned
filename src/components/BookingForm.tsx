@@ -14,8 +14,10 @@ const functionsOptions = [
   "Rehearsal Dinner",
 ];
 
-const fieldClass =
-  "w-full rounded-sm border border-ink/15 bg-white/60 px-3.5 py-2.5 text-ink placeholder:text-ink-dim/50 transition-colors focus:border-gold-deep focus:bg-white focus:outline-none";
+const fieldClassBase =
+  "w-full rounded-sm border border-ink/15 bg-white/60 px-3.5 py-2.5 placeholder:text-ink-dim/50 transition-colors focus:border-gold-deep focus:bg-white focus:outline-none";
+
+const fieldClass = `${fieldClassBase} text-ink`;
 
 const labelClass =
   "mb-1.5 block font-mono text-[10px] tracking-[0.2em] text-ink-dim uppercase";
@@ -23,6 +25,8 @@ const labelClass =
 export function BookingForm() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
   const [selected, setSelected] = useState<string[]>([]);
+  const [pkg, setPkg] = useState("");
+  const minDate = new Date().toISOString().slice(0, 10);
 
   function toggleFunction(name: string) {
     setSelected((prev) =>
@@ -76,7 +80,12 @@ export function BookingForm() {
 
         <label className="block">
           <span className={labelClass}>Wedding date</span>
-          <input name="date" type="date" className={fieldClass} />
+          <input
+            name="date"
+            type="date"
+            min={minDate}
+            className={fieldClass}
+          />
         </label>
 
         <label className="block">
@@ -105,8 +114,11 @@ export function BookingForm() {
           <div className="relative">
             <select
               name="package"
-              defaultValue=""
-              className={`${fieldClass} appearance-none pr-9`}
+              value={pkg}
+              onChange={(event) => setPkg(event.target.value)}
+              className={`${fieldClassBase} appearance-none pr-9 ${
+                pkg === "" ? "text-ink-dim" : "text-ink"
+              }`}
             >
               <option value="" disabled>
                 Select a package
