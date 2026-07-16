@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #0b0a08;
+  --color-surface: #15130e;
+  --color-surface-2: #1d1a13;
+  --color-gold: #c9a15a;
+  --color-gold-dim: #8f6f3c;
+  --color-maroon: #7a2e2e;
+  --color-ivory: #f4efe4;
+  --color-ivory-dim: #a49a86;
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-instrument-sans);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-pulse-rec: pulse-rec 2.2s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-ink);
+}
+
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-2);
+  border: 2px solid var(--color-ink);
+  border-radius: 999px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-rec {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes grain-shift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-1%, -2%);
+  }
+  30% {
+    transform: translate(2%, 1%);
+  }
+  50% {
+    transform: translate(-2%, 2%);
+  }
+  70% {
+    transform: translate(1%, -1%);
+  }
+  90% {
+    transform: translate(-1%, 1%);
+  }
+}
+
+.grain-layer {
+  animation: grain-shift 8s steps(8) infinite;
+}
+
+@keyframes hero-drift {
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.08) translate(-1.5%, 1.5%);
+    opacity: 0.85;
+  }
+}
+
+.hero-glow {
+  background: radial-gradient(
+    45% 40% at 50% 35%,
+    rgba(201, 161, 90, 0.16) 0%,
+    transparent 70%
+  );
+  animation: hero-drift 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain-layer,
+  .hero-glow {
+    animation: none;
+  }
+}
