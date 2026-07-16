@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { site } from "@/lib/content";
@@ -22,6 +22,19 @@ const item: Variants = {
   },
 };
 
+function useWipeReveal(): Variants {
+  const prefersReducedMotion = useReducedMotion();
+  return {
+    hidden: { clipPath: "inset(0 100% 0 0)" },
+    visible: {
+      clipPath: "inset(0 0% 0 0)",
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : { duration: 1.1, ease: [0.83, 0, 0.17, 1] },
+    },
+  };
+}
+
 interface HeroProps {
   reelSrc?: string | null;
   posterSrc?: string | null;
@@ -29,6 +42,7 @@ interface HeroProps {
 
 export function Hero({ reelSrc, posterSrc }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const wipeReveal = useWipeReveal();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -64,6 +78,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_48%,rgba(0,0,0,0.55)_0%,transparent_75%)]" />
       </div>
 
       <motion.div
@@ -90,7 +105,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         </motion.p>
 
         <motion.h1
-          variants={item}
+          variants={wipeReveal}
           className="text-balance font-display font-black text-[8.5vw] leading-[0.88] tracking-tight text-ivory sm:text-[8vw] lg:text-[6.5vw]"
         >
           {site.wordmark}
