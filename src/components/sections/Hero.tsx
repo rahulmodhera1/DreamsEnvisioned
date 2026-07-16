@@ -72,6 +72,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
             src={reelSrc}
             poster={posterSrc ?? undefined}
             autoPlay
+            loop
             muted
             playsInline
           />
