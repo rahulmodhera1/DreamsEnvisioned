@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { TimecodeTicker } from "@/components/chrome/TimecodeTicker";
@@ -21,17 +22,48 @@ const item: Variants = {
   },
 };
 
-export function Hero() {
+interface HeroProps {
+  reelSrc?: string | null;
+  posterSrc?: string | null;
+}
+
+export function Hero({ reelSrc, posterSrc }: HeroProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) {
+      video.pause();
+      video.removeAttribute("autoplay");
+    }
+  }, []);
+
   return (
     <section
       id="hero"
       className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-ink px-6"
     >
-      {/* looping background reel placeholder */}
+      {/* looping background reel — real footage if uploaded, gradient placeholder otherwise */}
       <div aria-hidden="true" className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_20%,#241f14_0%,#15130e_45%,#0b0a08_100%)]" />
         <div className="hero-glow absolute inset-0 opacity-70" />
         <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_100%,rgba(122,46,46,0.25)_0%,transparent_70%)]" />
+        {reelSrc && (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover opacity-60"
+            src={reelSrc}
+            poster={posterSrc ?? undefined}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
       </div>
 

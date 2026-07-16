@@ -6,13 +6,17 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Investment } from "@/components/sections/Investment";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
+import { getHeroReelAssets, getFilmPosters } from "@/lib/assets";
 
 export default function Home() {
+  const { video, poster } = getHeroReelAssets();
+  const filmPosters = getFilmPosters();
+
   return (
     <main className="flex flex-1 flex-col">
-      <Hero />
+      <Hero reelSrc={video} posterSrc={poster} />
       <Manifesto />
-      <FeaturedFilms />
+      <FeaturedFilms posters={filmPosters} />
       <Experience />
       <Testimonials />
       <Investment />

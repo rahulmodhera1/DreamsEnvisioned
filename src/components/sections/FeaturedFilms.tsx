@@ -3,7 +3,11 @@ import { Reveal } from "@/components/Reveal";
 import { FilmCard } from "@/components/FilmCard";
 import { films } from "@/lib/content";
 
-export function FeaturedFilms() {
+export function FeaturedFilms({
+  posters = {},
+}: {
+  posters?: Record<string, string | null>;
+}) {
   return (
     <section id="films" className="relative bg-ink py-24 sm:py-32">
       <SlateDivider scene="02" take="1" label="Featured Films" />
@@ -23,7 +27,7 @@ export function FeaturedFilms() {
         <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
           {films.map((film, index) => (
             <Reveal key={film.id} delay={(index % 3) * 0.08}>
-              <FilmCard film={film} index={index} />
+              <FilmCard film={film} index={index} poster={posters[film.id]} />
             </Reveal>
           ))}
         </div>

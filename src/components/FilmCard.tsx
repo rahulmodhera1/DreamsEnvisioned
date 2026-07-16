@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import type { films } from "@/lib/content";
@@ -16,9 +17,11 @@ const gradients = [
 export function FilmCard({
   film,
   index,
+  poster,
 }: {
   film: (typeof films)[number];
   index: number;
+  poster?: string | null;
 }) {
   return (
     <motion.article
@@ -31,6 +34,19 @@ export function FilmCard({
         className="relative aspect-video w-full overflow-hidden"
         style={{ background: gradients[index % gradients.length] }}
       >
+        {poster && (
+          <>
+            <Image
+              src={poster}
+              alt={`${film.couple} — ${film.ritual}`}
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-ink/50" />
+          </>
+        )}
+
         {/* slate top bar */}
         <div className="absolute inset-x-0 top-0 flex items-center justify-between px-4 py-3 text-[10px] font-mono tracking-[0.2em] text-ivory-dim uppercase">
           <span>Take {film.take}</span>
