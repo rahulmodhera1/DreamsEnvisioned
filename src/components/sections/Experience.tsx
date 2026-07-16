@@ -35,7 +35,7 @@ export function Experience() {
                 <li className="group relative flex gap-6 sm:gap-8">
                   <div className="relative z-10 flex-shrink-0">
                     <span className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-gold bg-paper text-gold-deep transition-colors duration-300 group-hover:bg-gold group-hover:text-paper sm:h-16 sm:w-16">
-                      <Icon size={22} strokeWidth={1.75} />
+                      <Icon size={22} strokeWidth={1.75} aria-hidden="true" />
                     </span>
                   </div>
 

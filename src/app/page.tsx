@@ -16,9 +16,9 @@ export default function Home() {
       <Hero reelSrc={video} posterSrc={poster} />
       <FeaturedFilms posters={filmPosters} />
       <Experience />
-      <Testimonials />
       <Investment />
       <Contact />
+      <Testimonials />
       <Footer />
     </main>
   );

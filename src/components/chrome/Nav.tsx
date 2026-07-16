@@ -42,9 +42,33 @@ export function Nav() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
-          className="md:hidden text-ivory hover:text-gold transition-colors"
+          className="relative md:hidden text-ivory hover:text-gold transition-colors active:scale-90"
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          <AnimatePresence mode="wait" initial={false}>
+            {open ? (
+              <motion.span
+                key="close"
+                initial={{ opacity: 0, rotate: -45 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: 45 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+                className="flex"
+              >
+                <X size={22} aria-hidden="true" />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="open"
+                initial={{ opacity: 0, rotate: 45 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: -45 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+                className="flex"
+              >
+                <Menu size={22} aria-hidden="true" />
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
       </div>
 

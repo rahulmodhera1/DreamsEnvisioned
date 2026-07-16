@@ -6,7 +6,7 @@ import { packages } from "@/lib/content";
 export function Investment() {
   return (
     <section className="relative bg-paper py-20 sm:py-28">
-      <SlateDivider scene="04" take="1" label="Investment" theme="light" />
+      <SlateDivider scene="03" take="1" label="Investment" theme="light" />
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal className="mt-12 max-w-2xl sm:mt-16">
           <h2 className="text-balance font-display text-4xl font-semibold text-ink sm:text-5xl">
@@ -36,10 +36,10 @@ export function Investment() {
                 </p>
                 <a
                   href="#contact"
-                  className="mt-6 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.15em] text-ivory uppercase hover:text-gold transition-colors"
+                  className="mt-6 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.15em] text-ivory uppercase transition-all duration-150 ease-out hover:text-gold active:scale-95"
                 >
                   Inquire
-                  <ArrowUpRight size={14} />
+                  <ArrowUpRight size={14} aria-hidden="true" />
                 </a>
               </div>
             </Reveal>

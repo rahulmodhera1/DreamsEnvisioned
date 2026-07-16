@@ -14,7 +14,7 @@ const stats = [
 export function Contact() {
   return (
     <section id="contact" className="relative bg-ink py-20 sm:py-24">
-      <SlateDivider scene="05" take="1" label="Book The Date" />
+      <SlateDivider scene="04" take="1" label="Book The Date" />
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <div className="mt-10 grid grid-cols-1 gap-10 sm:mt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <Reveal>
@@ -55,13 +55,13 @@ export function Contact() {
                 href={`mailto:${site.email}`}
                 className="flex items-center gap-3 text-ivory hover:text-gold transition-colors"
               >
-                <Mail size={18} className="text-gold" />
+                <Mail size={18} className="text-gold" aria-hidden="true" />
                 <span className="font-mono text-sm tracking-[0.05em]">
                   {site.email}
                 </span>
               </a>
               <div className="flex items-center gap-3 text-ivory-dim">
-                <MapPin size={18} className="text-gold" />
+                <MapPin size={18} className="text-gold" aria-hidden="true" />
                 <span className="font-mono text-sm tracking-[0.05em]">
                   {site.location}
                 </span>

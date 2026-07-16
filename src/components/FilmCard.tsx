@@ -77,7 +77,12 @@ export function FilmCard({
           className="absolute inset-0 flex items-center justify-center"
         >
           <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold bg-black/50 backdrop-blur-sm">
-            <Play size={22} className="ml-0.5 text-gold" fill="currentColor" />
+            <Play
+              size={22}
+              className="ml-0.5 text-gold"
+              fill="currentColor"
+              aria-hidden="true"
+            />
           </span>
         </motion.div>
       </div>

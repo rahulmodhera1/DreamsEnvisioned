@@ -102,7 +102,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
           variants={item}
           className="mb-5 font-mono text-[11px] tracking-[0.4em] text-gold uppercase"
         >
-          Toronto &amp; the GTA · South Asian Wedding Cinematography
+          Toronto &amp; the GTA · Documentary Wedding Cinematography
         </motion.p>
 
         <motion.h1
@@ -134,13 +134,13 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         >
           <a
             href="#films"
-            className="bg-gold px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ink uppercase transition-colors hover:bg-ivory"
+            className="bg-gold px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ink uppercase transition-all duration-150 ease-out hover:bg-ivory active:scale-[0.97]"
           >
             View Our Films
           </a>
           <a
             href="#contact"
-            className="border border-white/30 px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ivory uppercase transition-colors hover:border-gold hover:text-gold"
+            className="border border-white/30 px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ivory uppercase transition-all duration-150 ease-out hover:border-gold hover:text-gold active:scale-[0.97]"
           >
             Inquire
           </a>
@@ -159,6 +159,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
           Scroll
         </span>
         <ChevronDown
+          aria-hidden="true"
           size={18}
           className="animate-bounce motion-reduce:animate-none"
         />

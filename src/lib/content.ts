@@ -76,13 +76,13 @@ export const process = [
     number: "02",
     title: "Consultation",
     description:
-      "A call or coffee to map out your full timeline — mehndi, sangeet, baraat, ceremony, reception — so nothing gets rushed and nothing gets missed.",
+      "A call or coffee to map out your full timeline — whether that's a single ceremony and reception or a week of functions — so nothing gets rushed and nothing gets missed.",
   },
   {
     number: "03",
     title: "Wedding Day",
     description:
-      "We arrive early, stay unobtrusive, and shoot the day as it actually unfolds — the nerves, the noise, the vows, the bhangra circle at 11pm.",
+      "We arrive early, stay unobtrusive, and shoot the day as it actually unfolds — the nerves, the noise, the vows, the dance floor at 11pm.",
   },
   {
     number: "04",
