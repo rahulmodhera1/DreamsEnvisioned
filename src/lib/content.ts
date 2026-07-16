@@ -1,6 +1,6 @@
 export const site = {
   name: "DreamsEnvisioned",
-  wordmark: "DREAMSENVISIONED",
+  wordmark: "DREAMS ENVISIONED",
   tagline: "Wedding films for the Greater Toronto Area",
   instagramHandle: "@dreamsenvisioned",
   instagramUrl: "https://instagram.com/dreamsenvisioned",
@@ -10,7 +10,6 @@ export const site = {
 
 export const navLinks = [
   { label: "Films", href: "#films" },
-  { label: "Story", href: "#story" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
