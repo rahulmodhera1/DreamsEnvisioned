@@ -9,7 +9,7 @@ export function FeaturedFilms({
   posters?: Record<string, string | null>;
 }) {
   return (
-    <section id="films" className="relative bg-ink py-24 sm:py-32">
+    <section id="films" className="relative bg-ink py-20 sm:py-28">
       <SlateDivider scene="02" take="1" label="Featured Films" />
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal className="mt-12 sm:mt-16 max-w-2xl">

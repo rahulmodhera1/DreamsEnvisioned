@@ -5,7 +5,7 @@ import { packages } from "@/lib/content";
 
 export function Investment() {
   return (
-    <section className="relative bg-paper py-24 sm:py-32">
+    <section className="relative bg-paper py-20 sm:py-28">
       <SlateDivider scene="05" take="1" label="Investment" theme="light" />
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal className="mt-12 max-w-2xl sm:mt-16">

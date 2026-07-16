@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 
 export function Manifesto() {
   return (
-    <section id="story" className="relative bg-paper py-24 sm:py-32">
+    <section id="story" className="relative bg-paper py-20 sm:py-28">
       <SlateDivider scene="01" take="1" label="Manifesto" theme="light" />
       <div className="mx-auto max-w-4xl px-6 sm:px-10">
         <Reveal className="mt-12 sm:mt-16">

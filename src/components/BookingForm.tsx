@@ -13,7 +13,7 @@ const functionsOptions = [
 ];
 
 const fieldClass =
-  "peer w-full border-0 border-b border-ink/20 bg-transparent py-2.5 text-ink placeholder:text-ink-dim/60 focus:border-gold-deep focus:outline-none";
+  "peer w-full border-0 border-b border-ink/20 bg-transparent py-2 text-ink placeholder:text-ink-dim/60 focus:border-gold-deep focus:outline-none";
 
 const labelClass =
   "font-mono text-[10px] tracking-[0.2em] text-ink-dim uppercase";
@@ -51,9 +51,9 @@ export function BookingForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative bg-paper p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] sm:p-10"
+      className="relative bg-paper p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] sm:p-8"
     >
-      <div className="flex flex-wrap items-start justify-between gap-4 border-b border-ink/15 pb-6">
+      <div className="flex flex-wrap items-start justify-between gap-4 border-b border-ink/15 pb-4">
         <div>
           <p className="font-mono text-[10px] tracking-[0.25em] text-gold-deep uppercase">
             Production
@@ -70,7 +70,7 @@ export function BookingForm() {
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2">
+      <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
         <label className="block sm:col-span-2">
           <span className={labelClass}>Couple&apos;s names</span>
           <input
@@ -97,6 +97,34 @@ export function BookingForm() {
           />
         </label>
 
+        <label className="block">
+          <span className={labelClass}>Email</span>
+          <input
+            required
+            name="email"
+            type="email"
+            placeholder="you@email.com"
+            className={fieldClass}
+          />
+        </label>
+
+        <label className="block">
+          <span className={labelClass}>Package interest</span>
+          <select
+            name="package"
+            defaultValue=""
+            className={`${fieldClass} appearance-none`}
+          >
+            <option value="" disabled>
+              Select a package
+            </option>
+            <option>The Short Film</option>
+            <option>The Feature</option>
+            <option>The Full Saga</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+
         <div className="block sm:col-span-2">
           <span className={labelClass}>Functions we&apos;d film</span>
           <div className="mt-3 flex flex-wrap gap-2">
@@ -108,7 +136,7 @@ export function BookingForm() {
                   key={f}
                   onClick={() => toggleFunction(f)}
                   aria-pressed={active}
-                  className={`border px-3 py-1.5 font-mono text-[11px] tracking-[0.1em] uppercase transition-colors ${
+                  className={`border px-3 py-1 font-mono text-[11px] tracking-[0.1em] uppercase transition-colors ${
                     active
                       ? "border-gold-deep bg-gold/15 text-gold-deep"
                       : "border-ink/20 text-ink-dim hover:border-gold-deep hover:text-ink"
@@ -122,50 +150,17 @@ export function BookingForm() {
         </div>
 
         <label className="block sm:col-span-2">
-          <span className={labelClass}>Package interest</span>
-          <select
-            name="package"
-            defaultValue=""
-            className={`${fieldClass} appearance-none`}
-          >
-            <option value="" disabled>
-              Select one (or skip — we&apos;ll help you choose)
-            </option>
-            <option>The Short Film</option>
-            <option>The Feature</option>
-            <option>The Full Saga</option>
-            <option>Not sure yet</option>
-          </select>
-        </label>
-
-        <label className="block">
-          <span className={labelClass}>Email</span>
-          <input
-            required
-            name="email"
-            type="email"
-            placeholder="you@email.com"
-            className={fieldClass}
-          />
-        </label>
-
-        <label className="block">
-          <span className={labelClass}>Phone (optional)</span>
-          <input name="phone" type="tel" className={fieldClass} />
-        </label>
-
-        <label className="block sm:col-span-2">
           <span className={labelClass}>Tell us about your day</span>
           <textarea
             name="message"
-            rows={4}
+            rows={3}
             placeholder="Number of guests, cities involved, anything you want captured..."
             className={`${fieldClass} resize-none`}
           />
         </label>
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-ink/15 pt-6">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-ink/15 pt-5">
         <p className="max-w-sm text-xs text-ink-dim">
           Submitting opens your email client with the details filled in —
           we reply within one business day.

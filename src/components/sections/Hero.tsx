@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Logo } from "@/components/Logo";
-import { TimecodeTicker } from "@/components/chrome/TimecodeTicker";
 import { site } from "@/lib/content";
 
 const container: Variants = {
@@ -81,7 +80,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8"
         >
-          <Logo size={72} />
+          <Logo width={130} />
         </motion.div>
 
         <motion.p
@@ -129,18 +128,6 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
           >
             Inquire
           </a>
-        </motion.div>
-
-        <motion.div
-          variants={item}
-          className="mt-10 flex items-center gap-3 border border-white/15 bg-black/50 px-4 py-2 backdrop-blur-sm"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-maroon animate-pulse-rec" />
-          <span className="font-mono text-[11px] tracking-[0.2em] text-ivory-dim uppercase">
-            Now Filming
-          </span>
-          <span className="h-3 w-px bg-white/15" />
-          <TimecodeTicker className="text-[11px] text-ivory-dim" />
         </motion.div>
       </motion.div>
 

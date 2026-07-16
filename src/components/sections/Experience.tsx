@@ -4,7 +4,7 @@ import { process } from "@/lib/content";
 
 export function Experience() {
   return (
-    <section id="experience" className="relative bg-paper py-24 sm:py-32">
+    <section id="experience" className="relative bg-paper py-20 sm:py-28">
       <SlateDivider scene="03" take="1" label="The Experience" theme="light" />
       <div className="mx-auto max-w-4xl px-6 sm:px-10">
         <Reveal className="mt-12 sm:mt-16">

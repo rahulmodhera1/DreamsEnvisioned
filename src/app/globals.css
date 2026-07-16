@@ -14,8 +14,8 @@
   --color-ink-dim: #57534a;
 
   /* accents */
-  --color-gold: #d4af37;
-  --color-gold-deep: #7d5f16;
+  --color-gold: #c1963c;
+  --color-gold-deep: #7a5c26;
   --color-maroon: #8c2a2a;
 
   --font-display: var(--font-fraunces);
@@ -23,7 +23,6 @@
   --font-mono: var(--font-jetbrains-mono);
 
   --animate-marquee: marquee 32s linear infinite;
-  --animate-pulse-rec: pulse-rec 2.2s ease-in-out infinite;
 }
 
 html {
@@ -98,16 +97,6 @@ body {
   }
 }
 
-@keyframes pulse-rec {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.25;
-  }
-}
-
 @keyframes grain-shift {
   0%,
   100% {
@@ -149,7 +138,7 @@ body {
 .hero-glow {
   background: radial-gradient(
     45% 40% at 50% 35%,
-    rgba(212, 175, 55, 0.22) 0%,
+    rgba(193, 150, 60, 0.22) 0%,
     transparent 70%
   );
   animation: hero-drift 14s ease-in-out infinite;

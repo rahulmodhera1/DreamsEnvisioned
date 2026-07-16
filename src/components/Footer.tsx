@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="relative border-t border-white/10 bg-ink py-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 text-center sm:flex-row sm:justify-between sm:text-left sm:px-10">
         <div className="flex items-center gap-3">
-          <Logo size={28} />
+          <Logo width={24} />
           <span className="font-mono text-xs tracking-[0.3em] text-ivory-dim uppercase">
             {site.wordmark}
           </span>

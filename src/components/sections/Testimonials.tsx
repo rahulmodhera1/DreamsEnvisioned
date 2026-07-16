@@ -5,7 +5,7 @@ import { testimonials } from "@/lib/content";
 
 export function Testimonials() {
   return (
-    <section className="relative bg-ink py-24 sm:py-32">
+    <section className="relative bg-ink py-20 sm:py-28">
       <SlateDivider scene="04" take="1" label="Words From The Families" />
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-14">

@@ -13,8 +13,14 @@ export function Nav() {
     <header id="top" className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
         <a href="#top" className="flex items-center gap-3 group">
-          <Logo size={36} />
-          <span className="font-mono text-xs tracking-[0.3em] text-ivory group-hover:text-gold transition-colors">
+          <Logo width={30} />
+          <span
+            className="font-mono text-xs tracking-[0.3em] text-ivory group-hover:text-gold transition-colors"
+            style={{
+              textShadow:
+                "1px 1px 0 rgba(0,0,0,0.9), -1px -1px 0.5px rgba(255,255,255,0.08)",
+            }}
+          >
             {site.name.toUpperCase()}
           </span>
         </a>
