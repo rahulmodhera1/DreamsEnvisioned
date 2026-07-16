@@ -54,7 +54,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         {reelSrc && (
           <video
             ref={videoRef}
-            className="absolute inset-0 h-full w-full object-cover opacity-70"
+            className="absolute inset-0 h-full w-full object-contain opacity-80"
             src={reelSrc}
             poster={posterSrc ?? undefined}
             autoPlay
