@@ -14,7 +14,7 @@ const stats = [
 export function Contact() {
   return (
     <section id="contact" className="relative bg-ink py-20 sm:py-24">
-      <SlateDivider scene="06" take="1" label="Book The Date" />
+      <SlateDivider scene="05" take="1" label="Book The Date" />
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <div className="mt-10 grid grid-cols-1 gap-10 sm:mt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <Reveal>

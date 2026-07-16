@@ -107,7 +107,8 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
 
         <motion.h1
           variants={wipeReveal}
-          className="text-balance font-display font-black text-[8.5vw] leading-[0.88] tracking-tight text-ivory sm:text-[8vw] lg:text-[6.5vw]"
+          style={{ fontVariationSettings: '"SOFT" 0, "WONK" 0' }}
+          className="text-balance font-display font-black text-[8.5vw] leading-[0.88] tracking-tighter text-ivory sm:text-[8vw] lg:text-[6.5vw]"
         >
           {site.wordmark}
         </motion.h1>
@@ -147,7 +148,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
       </motion.div>
 
       <motion.a
-        href="#story"
+        href="#films"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.1 }}
