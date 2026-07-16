@@ -28,17 +28,22 @@ interface HeroProps {
 }
 
 export function Hero({ reelSrc, posterSrc }: HeroProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const bgVideoRef = useRef<HTMLVideoElement>(null);
+  const fgVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const videos = [bgVideoRef.current, fgVideoRef.current].filter(
+      (v): v is HTMLVideoElement => v !== null,
+    );
+    if (!videos.length) return;
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
     if (prefersReducedMotion) {
-      video.pause();
-      video.removeAttribute("autoplay");
+      for (const video of videos) {
+        video.pause();
+        video.removeAttribute("autoplay");
+      }
     }
   }, []);
 
@@ -52,16 +57,30 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_15%,#1a1a1a_0%,#0a0a0a_50%,#000000_100%)]" />
         <div className="hero-glow absolute inset-0 opacity-80" />
         {reelSrc && (
-          <video
-            ref={videoRef}
-            className="absolute inset-0 h-full w-full object-contain opacity-80"
-            src={reelSrc}
-            poster={posterSrc ?? undefined}
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
+          <>
+            {/* blurred, scaled-up copy fills the full banner edge-to-edge */}
+            <video
+              ref={bgVideoRef}
+              className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
+              src={reelSrc}
+              poster={posterSrc ?? undefined}
+              autoPlay
+              muted
+              playsInline
+              tabIndex={-1}
+              aria-hidden="true"
+            />
+            {/* the real, undistorted frame on top */}
+            <video
+              ref={fgVideoRef}
+              className="absolute inset-0 h-full w-full object-contain opacity-90"
+              src={reelSrc}
+              poster={posterSrc ?? undefined}
+              autoPlay
+              muted
+              playsInline
+            />
+          </>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-transparent" />
