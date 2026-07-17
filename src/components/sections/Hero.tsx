@@ -66,7 +66,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         {reelSrc && (
           <video
             ref={videoRef}
-            className="absolute inset-0 h-full w-full object-cover opacity-90"
+            className="absolute inset-0 h-full w-full object-cover"
             src={reelSrc}
             poster={posterSrc ?? undefined}
             autoPlay
@@ -75,9 +75,9 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
             playsInline
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_48%,rgba(0,0,0,0.55)_0%,transparent_75%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_48%,rgba(0,0,0,0.4)_0%,transparent_75%)]" />
       </div>
 
       <motion.div
@@ -117,6 +117,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
 
         <motion.p
           variants={item}
+          style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}
           className="mt-8 max-w-lg text-balance font-sans text-[15px] leading-relaxed text-ivory/75 sm:text-base"
         >
           Documentary wedding films for South Asian celebrations — shot close,
@@ -129,13 +130,13 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         >
           <a
             href="#films"
-            className="group inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ink uppercase transition-colors hover:bg-ivory"
+            className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ink uppercase transition-all duration-150 ease-out hover:bg-ivory active:scale-[0.97]"
           >
             View Our Films
           </a>
           <a
             href="#contact"
-            className="border border-white/25 px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ivory uppercase backdrop-blur-sm transition-colors hover:border-gold hover:text-gold"
+            className="border border-white/25 px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ivory uppercase backdrop-blur-sm transition-all duration-150 ease-out hover:border-gold hover:text-gold active:scale-[0.97]"
           >
             Inquire
           </a>
@@ -143,17 +144,18 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
       </motion.div>
 
       <motion.a
-        href="#story"
+        href="#films"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.1 }}
-        className="group absolute bottom-10 z-10 flex flex-col items-center gap-2 text-ivory-dim hover:text-gold transition-colors"
+        className="group absolute bottom-5 z-10 hidden flex-col items-center gap-2 text-ivory-dim transition-colors hover:text-gold [@media(min-height:700px)]:flex sm:bottom-10"
         aria-label="Scroll to next section"
       >
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase">
           Scroll
         </span>
         <ChevronDown
+          aria-hidden="true"
           size={18}
           className="animate-bounce motion-reduce:animate-none"
         />

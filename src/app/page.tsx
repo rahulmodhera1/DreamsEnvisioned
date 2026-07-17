@@ -1,5 +1,4 @@
 import { Hero } from "@/components/sections/Hero";
-import { Manifesto } from "@/components/sections/Manifesto";
 import { FeaturedFilms } from "@/components/sections/FeaturedFilms";
 import { Experience } from "@/components/sections/Experience";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -15,12 +14,11 @@ export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
       <Hero reelSrc={video} posterSrc={poster} />
-      <Manifesto />
       <FeaturedFilms posters={filmPosters} />
       <Experience />
-      <Testimonials />
       <Investment />
       <Contact />
+      <Testimonials />
       <Footer />
     </main>
   );

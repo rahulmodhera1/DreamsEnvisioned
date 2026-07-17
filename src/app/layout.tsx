@@ -33,20 +33,22 @@ export const metadata: Metadata = {
     template: "%s — DreamsEnvisioned",
   },
   description:
-    "DreamsEnvisioned is a Toronto & GTA wedding cinematographer specializing in South Asian weddings — documentary storytelling shot for the way you'll actually remember the day.",
+    "DreamsEnvisioned is a Toronto & GTA wedding cinematographer capturing documentary-style films for weddings of every culture and tradition — shot for the way you'll actually remember the day.",
   keywords: [
     "Toronto wedding cinematographer",
     "GTA wedding videographer",
+    "documentary wedding film",
+    "cinematic wedding video",
+    "multicultural wedding films Toronto",
     "South Asian wedding film",
     "Indian wedding videography Toronto",
     "Punjabi wedding film",
-    "cinematic wedding video",
   ],
   authors: [{ name: "DreamsEnvisioned" }],
   openGraph: {
     title: "DreamsEnvisioned — Toronto & GTA Wedding Cinematography",
     description:
-      "Documentary-driven wedding films for South Asian weddings across the Greater Toronto Area.",
+      "Documentary-driven wedding films for every culture and tradition across the Greater Toronto Area.",
     url: "https://dreamsenvisioned.ca",
     siteName: "DreamsEnvisioned",
     locale: "en_CA",

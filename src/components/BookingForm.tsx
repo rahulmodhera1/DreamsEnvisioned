@@ -1,26 +1,32 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Send } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, Send, CheckCircle2 } from "lucide-react";
 import { site } from "@/lib/content";
 
 const functionsOptions = [
+  "Ceremony",
+  "Reception",
   "Mehndi",
   "Sangeet",
   "Baraat",
-  "Ceremony",
-  "Reception",
+  "Rehearsal Dinner",
 ];
 
-const fieldClass =
-  "peer w-full border-0 border-b border-ink/20 bg-transparent py-2 text-ink placeholder:text-ink-dim/60 focus:border-gold-deep focus:outline-none";
+const fieldClassBase =
+  "w-full rounded-sm border border-ink/15 bg-white/60 px-3.5 py-2.5 placeholder:text-ink-dim/50 transition-colors focus:border-gold-deep focus:bg-white focus:outline-none";
+
+const fieldClass = `${fieldClassBase} text-ink`;
 
 const labelClass =
-  "font-mono text-[10px] tracking-[0.2em] text-ink-dim uppercase";
+  "mb-1.5 block font-mono text-[10px] tracking-[0.2em] text-ink-dim uppercase";
 
 export function BookingForm() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
   const [selected, setSelected] = useState<string[]>([]);
+  const [pkg, setPkg] = useState("");
+  const minDate = new Date().toISOString().slice(0, 10);
 
   function toggleFunction(name: string) {
     setSelected((prev) =>
@@ -51,26 +57,16 @@ export function BookingForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative bg-paper p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] sm:p-8"
+      className="relative border border-ink/10 bg-paper p-6 shadow-[0_16px_40px_-24px_rgba(0,0,0,0.5)] sm:p-8"
     >
-      <div className="flex flex-wrap items-start justify-between gap-4 border-b border-ink/15 pb-4">
-        <div>
-          <p className="font-mono text-[10px] tracking-[0.25em] text-gold-deep uppercase">
-            Production
-          </p>
-          <p className="mt-1 font-display text-xl font-semibold text-ink">
-            Wedding Film Inquiry
-          </p>
-        </div>
-        <div className="text-right">
-          <p className="font-mono text-[10px] tracking-[0.25em] text-ink-dim uppercase">
-            Director
-          </p>
-          <p className="mt-1 font-mono text-xs text-ink-dim">{site.name}</p>
-        </div>
-      </div>
+      <p className="font-mono text-[10px] tracking-[0.25em] text-gold-deep uppercase">
+        Start the Conversation
+      </p>
+      <p className="mt-1.5 font-display text-2xl font-semibold text-ink">
+        Wedding Inquiry
+      </p>
 
-      <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
+      <div className="mt-7 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
         <label className="block sm:col-span-2">
           <span className={labelClass}>Couple&apos;s names</span>
           <input
@@ -84,7 +80,12 @@ export function BookingForm() {
 
         <label className="block">
           <span className={labelClass}>Wedding date</span>
-          <input name="date" type="date" className={fieldClass} />
+          <input
+            name="date"
+            type="date"
+            min={minDate}
+            className={fieldClass}
+          />
         </label>
 
         <label className="block">
@@ -110,19 +111,29 @@ export function BookingForm() {
 
         <label className="block">
           <span className={labelClass}>Package interest</span>
-          <select
-            name="package"
-            defaultValue=""
-            className={`${fieldClass} appearance-none`}
-          >
-            <option value="" disabled>
-              Select a package
-            </option>
-            <option>The Short Film</option>
-            <option>The Feature</option>
-            <option>The Full Saga</option>
-            <option>Not sure yet</option>
-          </select>
+          <div className="relative">
+            <select
+              name="package"
+              value={pkg}
+              onChange={(event) => setPkg(event.target.value)}
+              className={`${fieldClassBase} appearance-none pr-9 ${
+                pkg === "" ? "text-ink-dim" : "text-ink"
+              }`}
+            >
+              <option value="" disabled>
+                Select a package
+              </option>
+              <option>The Short Film</option>
+              <option>The Feature</option>
+              <option>The Full Saga</option>
+              <option>Not sure yet</option>
+            </select>
+            <ChevronDown
+              aria-hidden="true"
+              size={16}
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink-dim"
+            />
+          </div>
         </label>
 
         <div className="block sm:col-span-2">
@@ -136,7 +147,7 @@ export function BookingForm() {
                   key={f}
                   onClick={() => toggleFunction(f)}
                   aria-pressed={active}
-                  className={`border px-3 py-1 font-mono text-[11px] tracking-[0.1em] uppercase transition-colors ${
+                  className={`border px-3 py-1 font-mono text-[11px] tracking-[0.1em] uppercase transition-all duration-150 ease-out active:scale-95 ${
                     active
                       ? "border-gold-deep bg-gold/15 text-gold-deep"
                       : "border-ink/20 text-ink-dim hover:border-gold-deep hover:text-ink"
@@ -160,28 +171,34 @@ export function BookingForm() {
         </label>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-ink/15 pt-5">
+      <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-ink/10 pt-6">
         <p className="max-w-sm text-xs text-ink-dim">
           Submitting opens your email client with the details filled in —
           we reply within one business day.
         </p>
         <button
           type="submit"
-          className="inline-flex items-center gap-2 bg-ink px-6 py-3 font-mono text-[11px] tracking-[0.2em] text-paper uppercase transition-colors hover:bg-gold-deep"
+          className="inline-flex items-center gap-2 bg-gold px-6 py-3 font-mono text-[11px] tracking-[0.2em] text-ink uppercase transition-all duration-150 ease-out hover:bg-gold-deep hover:text-ivory active:scale-[0.97]"
         >
           Send Inquiry
-          <Send size={14} />
+          <Send size={14} aria-hidden="true" />
         </button>
       </div>
 
-      {status === "sent" && (
-        <p
-          role="status"
-          className="mt-4 font-mono text-[11px] tracking-[0.15em] text-gold-deep uppercase"
-        >
-          Opening your email client — see you soon.
-        </p>
-      )}
+      <AnimatePresence>
+        {status === "sent" && (
+          <motion.p
+            role="status"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-4 flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] text-gold-deep uppercase"
+          >
+            <CheckCircle2 size={14} aria-hidden="true" />
+            Opening your email client — see you soon.
+          </motion.p>
+        )}
+      </AnimatePresence>
     </form>
   );
 }

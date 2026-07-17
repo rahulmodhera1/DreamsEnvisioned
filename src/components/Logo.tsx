@@ -14,7 +14,7 @@ export function Logo({
   return (
     <Image
       src="/logo/mark-icon.png"
-      alt="DreamsEnvisioned"
+      alt=""
       width={width}
       height={height}
       className={`select-none ${className}`}

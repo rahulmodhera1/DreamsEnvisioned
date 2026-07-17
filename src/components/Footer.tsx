@@ -20,16 +20,16 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="DreamsEnvisioned on Instagram"
-            className="text-ivory-dim hover:text-gold transition-colors"
+            className="text-ivory-dim transition-all duration-150 ease-out hover:scale-110 hover:text-gold active:scale-95"
           >
             <InstagramGlyph size={18} />
           </a>
           <a
             href={`mailto:${site.email}`}
             aria-label="Email DreamsEnvisioned"
-            className="text-ivory-dim hover:text-gold transition-colors"
+            className="text-ivory-dim transition-all duration-150 ease-out hover:scale-110 hover:text-gold active:scale-95"
           >
-            <Mail size={18} />
+            <Mail size={18} aria-hidden="true" />
           </a>
         </div>
 
