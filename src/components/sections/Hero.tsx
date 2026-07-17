@@ -3,8 +3,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { Logo } from "@/components/Logo";
-import { site } from "@/lib/content";
 
 const container: Variants = {
   hidden: {},
@@ -59,7 +57,7 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-ink px-6"
+      className="relative flex min-h-[100svh] min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-ink px-6"
     >
       {/* looping background reel — real footage if uploaded, high-contrast placeholder otherwise */}
       <div aria-hidden="true" className="absolute inset-0 bg-black">
@@ -86,60 +84,58 @@ export function Hero({ reelSrc, posterSrc }: HeroProps) {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-col items-center text-center"
+        className="relative z-10 flex flex-col items-center px-2 text-center"
       >
-        <motion.div
+        <motion.p
           variants={item}
-          initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8"
+          className="mb-6 flex items-center gap-3 font-mono text-[10px] tracking-[0.38em] text-gold/90 uppercase sm:text-[11px]"
         >
-          <Logo width={130} />
-        </motion.div>
+          <span aria-hidden="true" className="h-px w-6 bg-gold/50" />
+          Toronto &amp; the GTA
+          <span aria-hidden="true" className="h-px w-6 bg-gold/50" />
+        </motion.p>
+
+        <h1
+          className="font-display leading-[0.9] tracking-[-0.015em] text-ivory [text-shadow:0_2px_40px_rgba(0,0,0,0.55)]"
+          aria-label="Dreams Envisioned"
+        >
+          <motion.span
+            variants={wipeReveal}
+            className="block text-[17vw] sm:text-[13vw] lg:text-[8.75rem]"
+            style={{ fontVariationSettings: '"opsz" 144, "wght" 380' }}
+          >
+            Dreams
+          </motion.span>
+          <motion.span
+            variants={wipeReveal}
+            className="-mt-[0.06em] block text-[17vw] italic text-gold sm:text-[13vw] lg:text-[8.75rem]"
+            style={{ fontVariationSettings: '"opsz" 144, "wght" 360' }}
+          >
+            Envisioned
+          </motion.span>
+        </h1>
 
         <motion.p
           variants={item}
-          className="mb-5 font-mono text-[11px] tracking-[0.4em] text-gold uppercase"
+          className="mt-8 max-w-lg text-balance font-sans text-[15px] leading-relaxed text-ivory/75 sm:text-base"
         >
-          Toronto &amp; the GTA · South Asian Wedding Cinematography
-        </motion.p>
-
-        <motion.h1
-          variants={wipeReveal}
-          className="text-balance font-display font-black text-[8.5vw] leading-[0.88] tracking-tight text-ivory sm:text-[8vw] lg:text-[6.5vw]"
-        >
-          {site.wordmark}
-        </motion.h1>
-
-        <motion.div
-          variants={item}
-          className="mt-6 h-px w-24 bg-gold"
-          aria-hidden="true"
-        />
-
-        <motion.p
-          variants={item}
-          className="mt-6 max-w-xl text-balance font-sans text-base text-ivory-dim sm:text-lg"
-        >
-          Documentary wedding films, shot close and cut by hand — for the
-          families who fill a hall from Brampton to Ajax and every hour of
-          ritual in between.
+          Documentary wedding films for South Asian celebrations — shot close,
+          cut by hand, and made to relive for a lifetime.
         </motion.p>
 
         <motion.div
           variants={item}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          className="mt-9 flex flex-wrap items-center justify-center gap-4"
         >
           <a
             href="#films"
-            className="bg-gold px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ink uppercase transition-colors hover:bg-ivory"
+            className="group inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ink uppercase transition-colors hover:bg-ivory"
           >
             View Our Films
           </a>
           <a
             href="#contact"
-            className="border border-white/30 px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ivory uppercase transition-colors hover:border-gold hover:text-gold"
+            className="border border-white/25 px-7 py-3.5 font-mono text-[11px] tracking-[0.2em] text-ivory uppercase backdrop-blur-sm transition-colors hover:border-gold hover:text-gold"
           >
             Inquire
           </a>
